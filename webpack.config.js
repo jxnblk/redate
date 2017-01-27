@@ -11,7 +11,7 @@ module.exports = {
 
   resolve: {
     alias: {
-      'react-date': path.join(__dirname, 'src/DateInput')
+      'redate': path.join(__dirname, 'src/Redate')
     }
   },
 

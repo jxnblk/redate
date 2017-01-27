@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-class DateInput extends React.Component {
+class Redate extends React.Component {
   constructor () {
     super()
     this.state = {
@@ -128,7 +128,7 @@ const dateValuePropType = (props, name, comp) => {
   }
 }
 
-DateInput.propTypes = {
+Redate.propTypes = {
   value: dateValuePropType,
   onChange: React.PropTypes.func
 }
@@ -149,63 +149,5 @@ const inputStyles = {
   }
 }
 
-export default DateInput
-
-
-// This may just be dumb
-/*
-const DateSelects = ({ value, onChange, ...props }) => {
-  const {
-  } = props
-
-  const handleChange = () => (e) => {
-    const { value } = e.target
-    const date = value
-
-    e.target.value = date
-    props.onChange(e)
-  }
-
-  return (
-    <div>
-      <select
-        name={props.name + '-month'}
-      >
-      </select>
-      <select>
-      </select>
-      <select>
-      </select>
-    </div>
-  )
-}
-
-const startYear = new Date().getFullYear()
-
-DateSelects.defaultProps = {
-  startYear,
-  endYear: startYear + 50,
-  yearInput: false // To do: support for year as input
-}
-
-const months = [
-  1, 2, 3, 4,
-  5, 6, 7, 8,
-  9, 10, 11, 12
-]
-
-const getDays = (year, month) => {
-  const length = daysInMonth(year, month)
-  const days = Array.from({ length })
-    .map((n, i) => i + 1)
-  return days
-}
-
-const getYears = (start, end) => {
-  const length = end - start
-  const years = Array.from({ length })
-    .map((n, i) => start + i)
-  return years
-}
-*/
+export default Redate
 

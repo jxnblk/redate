@@ -1,13 +1,19 @@
 {
-  "name": "react-date",
-  "version": "1.0.0",
-  "description": "",
+  "name": "redate",
+  "version": "1.0.0-b0",
+  "description": "React date input with fallback for browsers that lack support",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack -p"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "react-component",
+    "date",
+    "date-input",
+    "forms"
+  ],
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {

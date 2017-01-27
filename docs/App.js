@@ -1,7 +1,7 @@
 
 import React from 'react'
 import cxs from 'cxs'
-import DateInput from 'react-date'
+import Redate from 'redate'
 
 const padLeft = (str, pad) => {
   return String(pad + str).slice(-pad.length)
@@ -37,7 +37,8 @@ class App extends React.Component {
       <div style={{
         padding: 48
       }}>
-        <h1>React Date Input</h1>
+        <h1>Redate Demo</h1>
+        <p>A React date input component with fallback for browsers that lack support</p>
         <h2>Default native input</h2>
         <label htmlFor='date'>Date</label>
         <input
@@ -47,8 +48,8 @@ class App extends React.Component {
           onChange={this.onChange}
           className={classNames.input}
         />
-        <h2>React DateInput</h2>
-        <DateInput
+        <h2>Redate</h2>
+        <Redate
           type='date'
           name='date'
           value={date}
