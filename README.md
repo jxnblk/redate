@@ -34,6 +34,19 @@ const Form = ({
 )
 ```
 
+### Styling
+
+Redate includes minimal styling to place the fallback inputs inline horizontally. To add custom styles, pass a `className` to the Redate component, which will be applied to each individual input.
+
+```jsx
+<Redate
+  name='date'
+  value={date}
+  onChange={onChange}
+  className='my-custom-classname'
+/>
+```
+
 ### Customizing the order
 
 The order of the fallback inputs defaults to the American `MM-DD-YYYY` order.
