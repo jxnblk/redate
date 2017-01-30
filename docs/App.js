@@ -43,14 +43,16 @@ class App extends React.Component {
         <label htmlFor='date'>Date</label>
         <input
           type='date'
+          id='date'
           name='date'
           value={date}
           onChange={this.onChange}
           className={classNames.input}
         />
         <h2>Redate</h2>
+        <label htmlFor='redate'>Date MM/DD/YYYY</label>
         <Redate
-          type='date'
+          id='redate'
           name='date'
           value={date}
           onChange={this.onChange}
@@ -76,6 +78,15 @@ const classNames = {
     },
     ':first-child:last-child': {
       borderRadius: 4
+    },
+    ':invalid': {
+      borderColor: '#f03'
+    },
+    '::-webkit-inner-spin-button': {
+      WebkitAppearance: 'none'
+    },
+    '::-webkit-outer-spin-button': {
+      WebkitAppearance: 'none'
     }
   })
 }

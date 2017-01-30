@@ -34,6 +34,22 @@ const Form = ({
 )
 ```
 
+### Customizing the order
+
+The order of the fallback inputs defaults to the American `MM-DD-YYYY` order.
+For other localizations, provide an array of keys as the order prop:
+
+```jsx
+<Redate
+  name='date'
+  value={date}
+  onChange={onChange}
+  order={[
+    'year', 'month', 'day'
+  ]}
+/>
+```
+
 [View Demo](http://jxnblk.com/redate)
 
 [MIT License](LICENSE.md)

@@ -38,6 +38,7 @@ const DateInputs = ({
   name,
   value,
   onChange,
+  order,
   className,
   ...props
 }) => {
@@ -48,15 +49,15 @@ const DateInputs = ({
     let date
 
     switch (part) {
-        case 'year':
-          date = hyphenate(value, month, day)
-          break
-        case 'month':
-          date = hyphenate(year, value, day)
-          break
-        case 'day':
-          date = hyphenate(year, month, value)
-          break
+      case 'year':
+        date = hyphenate(value, month, day)
+        break
+      case 'month':
+        date = hyphenate(year, value, day)
+        break
+      case 'day':
+        date = hyphenate(year, month, value)
+        break
     }
 
     const next = {
@@ -71,12 +72,10 @@ const DateInputs = ({
     onChange(next)
   }
 
-  // To do: allow i18n sorting options
-  // To do: allow month name select option
-  return (
-    <div id={id || name}
-      style={inputStyles.root}>
+  const inputs = {
+    month: (
       <input
+        key='month'
         type='number'
         name={name + '-month'}
         pattern='[0-9]*'
@@ -87,7 +86,10 @@ const DateInputs = ({
         className={className}
         style={inputStyles.monthDay}
       />
+    ),
+    day: (
       <input
+        key='day'
         type='number'
         name={name + '-day'}
         pattern='[0-9]*'
@@ -98,7 +100,10 @@ const DateInputs = ({
         className={className}
         style={inputStyles.monthDay}
       />
+    ),
+    year: (
       <input
+        key='year'
         type='number'
         name={name + '-year'}
         pattern='[0-9]*'
@@ -108,6 +113,16 @@ const DateInputs = ({
         className={className}
         style={inputStyles.year}
       />
+    )
+  }
+
+  const orderedInputs = order.map(key => inputs[key])
+
+  // To do: allow month name select option
+  return (
+    <div id={id || name}
+      style={inputStyles.root}>
+      {orderedInputs}
     </div>
   )
 }
@@ -131,6 +146,12 @@ const dateValuePropType = (props, name, comp) => {
 Redate.propTypes = {
   value: dateValuePropType,
   onChange: React.PropTypes.func
+}
+
+Redate.defaultProps = {
+  order: [
+    'month', 'day', 'year'
+  ]
 }
 
 const inputStyles = {
