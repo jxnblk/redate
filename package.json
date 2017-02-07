@@ -1,6 +1,6 @@
 {
   "name": "redate",
-  "version": "1.0.0-b2",
+  "version": "1.0.0-b3",
   "description": "React date input with fallback for browsers that lack support",
   "main": "dist/Redate.js",
   "scripts": {
