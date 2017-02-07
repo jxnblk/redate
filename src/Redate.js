@@ -125,7 +125,7 @@ const DateInputs = ({
     .map((input, i) => {
       if (divider && i < 2) {
         return (
-          <div style={inputStyles.dividerWrap}>
+          <div key={'divider' + i} style={inputStyles.dividerWrap}>
             {input}
             <span>{divider}</span>
           </div>
