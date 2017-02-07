@@ -23,11 +23,15 @@ class Redate extends React.Component {
         <DateInputs {...this.props} />
       )
     }
+    const {
+      divider,
+      ...props
+    } = this.props
 
     return (
       <input
         type='date'
-        {...this.props}
+        {...props}
       />
     )
   }
