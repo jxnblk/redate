@@ -40,6 +40,7 @@ const DateInputs = ({
   onChange,
   order,
   className,
+  divider,
   ...props
 }) => {
   const [ year, month, day ] = value.split('-')
@@ -117,6 +118,18 @@ const DateInputs = ({
   }
 
   const orderedInputs = order.map(key => inputs[key])
+    .map((input, i) => {
+      if (divider && i < 2) {
+        return (
+          <div style={inputStyles.dividerWrap}>
+            {input}
+            <span>{divider}</span>
+          </div>
+        )
+      }
+      return input
+    })
+
 
   // To do: allow month name select option
   return (
@@ -160,13 +173,20 @@ const inputStyles = {
   },
   monthDay: {
     boxSizing: 'border-box',
-    margin: 0,
-    width: '25%'
+    flex: '1 1 auto',
+    width: '25%',
+    margin: 0
   },
   year: {
     boxSizing: 'border-box',
-    margin: 0,
-    width: '50%'
+    flex: '1 1 auto',
+    width: '50%',
+    margin: 0
+  },
+  dividerWrap: {
+    display: 'flex',
+    flex: '1 1 auto',
+    width: '25%'
   }
 }
 
