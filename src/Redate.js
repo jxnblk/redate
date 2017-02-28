@@ -151,10 +151,11 @@ const daysInMonth = (year, month) => {
 }
 
 const dateValuePropType = (props, name, comp) => {
-  if (!/[0-9]{4}-[0-9]{2}-[0-9]{2}/.test(props[name])) {
+  if (!/[0-9]{4}-[0-9]{2}-[0-9]{2}/.test(props[name]) && props[name] !== '') {
     return new Error(
       'Invalid prop `' + name + '` supplied to' +
       ' `' + comp + '`. Validation failed. ' +
+      'Value provided: `' + props[name] + '`.' +
       'Value should be in the format YYYY-MM-DD.'
     )
   }
