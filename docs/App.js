@@ -68,6 +68,7 @@ class App extends React.Component {
           onChange={this.onChange}
           className={classNames.input}
         />
+        <pre>empty: {`<${typeof empty}>`} {empty}</pre>
       </div>
     )
   }
