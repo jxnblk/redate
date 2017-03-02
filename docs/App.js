@@ -20,7 +20,8 @@ class App extends React.Component {
   constructor () {
     super()
     this.state = {
-      date: initDate()
+      date: initDate(),
+      empty: ''
     }
     this.onChange = this.onChange.bind(this)
   }
@@ -31,7 +32,7 @@ class App extends React.Component {
   }
 
   render () {
-    const { date } = this.state
+    const { date, empty } = this.state
 
     return (
       <div style={{
@@ -58,6 +59,16 @@ class App extends React.Component {
           onChange={this.onChange}
           className={classNames.input}
         />
+        <h2>Redate with empty value</h2>
+        <label htmlFor='redate-empty'>Date MM/DD/YYYY</label>
+        <Redate
+          id='redate-empty'
+          name='empty'
+          value={empty}
+          onChange={this.onChange}
+          className={classNames.input}
+        />
+        <pre>empty: {`<${typeof empty}>`} {empty}</pre>
       </div>
     )
   }

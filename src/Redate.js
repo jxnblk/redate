@@ -86,7 +86,7 @@ const DateInputs = ({
         pattern='[0-9]*'
         min={1}
         max={12}
-        value={month}
+        value={month || ''}
         onChange={handleChange('month')}
         className={className}
         style={inputStyles.monthDay}
@@ -100,7 +100,7 @@ const DateInputs = ({
         pattern='[0-9]*'
         min={1}
         max={daysInMonth(year, month)}
-        value={day}
+        value={day || ''}
         onChange={handleChange('day')}
         className={className}
         style={inputStyles.monthDay}
@@ -112,7 +112,7 @@ const DateInputs = ({
         type='number'
         name={name + '-year'}
         pattern='[0-9]*'
-        value={year}
+        value={year || ''}
         max={9999}
         onChange={handleChange('year')}
         className={className}
@@ -151,10 +151,11 @@ const daysInMonth = (year, month) => {
 }
 
 const dateValuePropType = (props, name, comp) => {
-  if (!/[0-9]{4}-[0-9]{2}-[0-9]{2}/.test(props[name])) {
+  if (!/[0-9]{0,4}-[0-9]{0,2}-[0-9]{0,2}/.test(props[name]) && props[name] !== '') {
     return new Error(
       'Invalid prop `' + name + '` supplied to' +
       ' `' + comp + '`. Validation failed. ' +
+      'Value provided: `' + props[name] + '`.' +
       'Value should be in the format YYYY-MM-DD.'
     )
   }
